@@ -25,6 +25,18 @@ add_library( # Sets the name of the library.
         # Provides a relative path to your source file(s).
         ${native_srcs})
 
+add_library( # Sets the name of the library.
+        json
+
+        # Sets the library as a shared library.
+        SHARED
+
+        # Provides a relative path to your source file(s).
+        "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/jsoncpp/json_reader.cpp"
+        "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/jsoncpp/json_value.cpp"
+        "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/jsoncpp/json_writer.cpp"
+        )
+
 
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -46,7 +58,8 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
         jnistudy
-
+        json
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
+

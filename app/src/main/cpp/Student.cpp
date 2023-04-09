@@ -28,6 +28,7 @@ int Student::getAge() const {
 }
 
 std::string Student::getName() {
+
     std::transform(mName.begin(),
                    mName.end(),
                    mName.begin(),
@@ -35,4 +36,12 @@ std::string Student::getName() {
                        return std::toupper(c);
                    });
     return mName;
+}
+
+char* Student::getMyBytes() {
+    const char* mychar = mName.c_str();
+    char* mybytes = new char[mName.length()];
+    std::memcpy(mybytes, mychar, mName.length());
+    mybytes[mName.length()] = '\0';
+    return mybytes;
 }

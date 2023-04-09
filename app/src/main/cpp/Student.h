@@ -5,7 +5,7 @@
 #ifndef JNISTUDY_STUDENT_H
 #define JNISTUDY_STUDENT_H
 
-class Student {
+class Student  {
 private:
     std::string mName;
     int mAge;
@@ -21,6 +21,8 @@ public:
     int getAge() const;
 
     std::string getName();
+
+    char* getMyBytes();
 };
 
 #endif //JNISTUDY_STUDENT_H

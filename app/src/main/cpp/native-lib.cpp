@@ -12,6 +12,7 @@
 #include <arpa/inet.h>
 #include <unordered_map>
 #include "Utils.h"
+#include "jsoncpp/value.h"
 
 #define LOG_TAG "atlinweimao"
 
@@ -47,9 +48,14 @@ Java_com_example_jnistudy_MainActivity_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
+    ////////
 
-    std::string name;
-    return env->NewStringUTF(hello.c_str());
+    Json::Value video;
+    video["id"] = 1;
+    video["name"] = "bekko.zhang@anker-in.com";
+    const char *json_str = video.toStyledString().c_str();
+    jstring result = env->NewStringUTF(json_str);
+    return result;
 }
 
 
@@ -89,9 +95,9 @@ Java_com_example_jnistudy_MainActivity_updateNameField(JNIEnv *env, jobject thiz
 
     struct s1 structs1 = {0};
     struct s2 structs2 = {0};
-    LOGD("[zhang] = sizeof(structs1), %d", sizeof(structs1));
-    LOGD("[zhang] = sizeof(structs2), %d", sizeof(structs2));
-    LOGD("[zhang] = sizeof(structs3), %d", sizeof(struct s3));
+    LOGD("[zhang] = sizeof(structs1), %lu", sizeof(structs1));
+    LOGD("[zhang] = sizeof(structs2), %lu", sizeof(structs2));
+    LOGD("[zhang] = sizeof(structs3), %lu", sizeof(struct s3));
 
 }
 
@@ -114,11 +120,21 @@ Java_com_example_jnistudy_MainActivity_writeStudent(JNIEnv *env, jobject thiz, j
 }
 
 extern "C"
-JNIEXPORT jobject JNICALL
+JNIEXPORT jbyteArray JNICALL
 Java_com_example_jnistudy_MainActivity_www(JNIEnv *env,
                                            jobject thiz,
                                            jobject on_status_listener) {
-    Utils::setStudentName("hello WOrld");
-    std::unordered_map<std::string, int> a =  Utils::getHashMap();
-    return nullptr;
+    Utils::setStudentName("hello");
+    std::unordered_map<std::string, int> a = Utils::getHashMap();
+    std::string str = "HELLO";
+    const char *c_str = str.c_str();
+//=//    jsize len = env->GetStringUTFLength(str);
+    jsize len = 5;
+    jbyteArray result = env->NewByteArray(len);
+    env->SetByteArrayRegion(result, 0, len, (jbyte *) c_str);
+//    env->ReleaseStringUTFChars(str, c_str);
+
+    Utils::calculate_crea();
+    Utils::calculate_perimeter();
+    return result;
 }

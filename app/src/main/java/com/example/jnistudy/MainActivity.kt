@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val toByteArray = "HELLO".toByteArray()
 
 //        for(i in 0..1) {
 //            stringFromJNI()
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "student.NewtoString() =  " + student.toString())
         NativeLib().stringFromJNI()
 
-        www(object : OnStatusListener{
+        val www = www(object : OnStatusListener {
             override fun a(int: Int, student: Student, file: File) {
                 TODO("Not yet implemented")
             }
@@ -49,13 +50,15 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        Log.d(TAG, "student.NewtoString() =  " + student.toString())
+        Log.d(TAG, "onCreate: jsoncpp, " + stringFromJNI())
     }
 
     /**
      * A native method that is implemented by the 'jnistudy' native library,
      * which is packaged with this application.
      */
-    external fun www(onStatusListener: OnStatusListener):JSONObject
+    external fun www(onStatusListener: OnStatusListener):ByteArray
 
     external fun writeStudent(student: Student): Unit
 
