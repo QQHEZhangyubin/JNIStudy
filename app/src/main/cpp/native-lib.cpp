@@ -53,6 +53,7 @@ Java_com_example_jnistudy_MainActivity_stringFromJNI(
     Json::Value video;
     video["id"] = 1;
     video["name"] = "bekko.zhang@anker-in.com";
+    video["name2"] = "张玉彬";
     const char *json_str = video.toStyledString().c_str();
     jstring result = env->NewStringUTF(json_str);
     return result;
