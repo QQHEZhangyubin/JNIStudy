@@ -45,3 +45,15 @@ char* Student::getMyBytes() {
     mybytes[mName.length()] = '\0';
     return mybytes;
 }
+
+Student::Student() {
+    LOGD("--->【%s】", __FUNCTION__ );
+}
+
+void Student::setMName(const std::string &mName) {
+    Student::mName = mName;
+}
+
+Student::~Student() {
+    LOGD("--->【%s】", __FUNCTION__ );
+}

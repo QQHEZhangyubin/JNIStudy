@@ -1,14 +1,10 @@
 package com.example.jnistudy
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.jnistudy.databinding.ActivityMainBinding
-import com.example.nativelib.NativeLib
-import org.json.JSONObject
-import java.io.File
+import com.example.nativelib.CuraEngineLib
+import com.example.openmp.NativeLib
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,42 +12,27 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     var mName: String? = null
+    val mAnkerEngineLib = CuraEngineLib()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val toByteArray = "HELLO".toByteArray()
+        binding.buttonLoadFile.setOnClickListener {
+            mAnkerEngineLib.extracted(this@MainActivity)
+        }
 
-//        for(i in 0..1) {
-//            stringFromJNI()
-//        }
-        // Example of a call to a native method
-        binding.sampleText.text = "........"
-        Log.d(TAG, "bekko: Thread.currentThread().id = "+ Thread.currentThread().name)
+        binding.buttonStartSlicer.setOnClickListener {
+            mAnkerEngineLib.slicer(this@MainActivity)
+        }
 
-        Log.d(TAG, "onCreate: mName = "+ mName)
-        updateNameField()
-        Log.d(TAG, "onCreate: mName = "+ mName)
-        val student = Student(name = "bekko", age = 25, score = 12.0f, isMale = false)
-        Log.d(TAG, "student.toString() =  " + student.toString())
-        writeStudent(student)
-        Log.d(TAG, "student.NewtoString() =  " + student.toString())
-        NativeLib().stringFromJNI()
+        binding.btnOpenmp.setOnClickListener {
+            NativeLib().stringFromJNI()
+        }
 
-        val www = www(object : OnStatusListener {
-            override fun a(int: Int, student: Student, file: File) {
-                TODO("Not yet implemented")
-            }
-
-            override fun b(boolean: Boolean, context: Context) {
-                TODO("Not yet implemented")
-            }
-
-        })
-        Log.d(TAG, "student.NewtoString() =  " + student.toString())
-        Log.d(TAG, "onCreate: jsoncpp, " + stringFromJNI())
+//        val a: Long  = 10000L
+        binding.tvLd.text = String.format(getString(R.string.number), 123)
     }
 
     /**
@@ -67,6 +48,10 @@ class MainActivity : AppCompatActivity() {
     external fun stringFromJNI(): String
 
     external fun adf(a: Int, b: Boolean): Unit
+
+    external fun cppJson(): Unit
+
+    external fun ji():Unit
 
     companion object {
         // Used to load the 'jnistudy' library on application startup.

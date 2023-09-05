@@ -6,19 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/sample_text"
-        android:layout_width="320dp"
+
+    <Button
+        android:id="@+id/button_load_file"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Load file"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button_start_slicer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Slicer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_load_file" />
+
+    <TextView
+        android:id="@+id/tv_hello"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_start_slicer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/tv_ld"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_openmp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_ld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="openmp"/>
+
+
     <View
-        android:id="@+id/tvvv"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:background="@color/black"/>
+        android:layout_width="55dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="120dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="52dp"
+        android:src="@mipmap/g427322450"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59000003" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

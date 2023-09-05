@@ -44,6 +44,18 @@ void Utils::setRectangle(Rectangle rectangle) {
     Json::Value video;
 }
 
+Student Utils::getStudent() {
+    Student student;
+    student.setMName("jjjj");
+    return student;
+}
+
+Student *Utils::getStudent2() {
+    Student *student = new Student();
+    student->setMName("hhhh");
+    return student;
+}
+
 
 
 

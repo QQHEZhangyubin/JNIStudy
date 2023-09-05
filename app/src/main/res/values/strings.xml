@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">JNIStudy</string>
+    <string name="app_name">JNIStudy, \"hello\"</string>
+    <string name="number">number:(%d)</string>
 </resources>

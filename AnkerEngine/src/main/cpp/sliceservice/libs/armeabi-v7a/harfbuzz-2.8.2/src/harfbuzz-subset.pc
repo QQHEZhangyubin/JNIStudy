@@ -1,0 +1,12 @@
+prefix=/Users/anker/Desktop/3d3/a_boost/Boost-for-Android/libiconv-libicu-android/armeabi-v7a/harfbuzz-2.8.2/..
+exec_prefix=/Users/anker/Desktop/3d3/a_boost/Boost-for-Android/libiconv-libicu-android/armeabi-v7a/harfbuzz-2.8.2/..
+libdir=/Users/anker/Desktop/3d3/a_boost/Boost-for-Android/libiconv-libicu-android/armeabi-v7a/harfbuzz-2.8.2/../lib
+includedir=/Users/anker/Desktop/3d3/a_boost/Boost-for-Android/libiconv-libicu-android/armeabi-v7a/harfbuzz-2.8.2/../include
+
+Name: harfbuzz
+Description: HarfBuzz font subsetter
+Version: 2.8.2
+
+Requires: harfbuzz
+Libs: -L${libdir} -lharfbuzz-subset
+Cflags: -I${includedir}/harfbuzz

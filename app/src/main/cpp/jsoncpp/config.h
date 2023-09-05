@@ -47,7 +47,7 @@
 #endif // ifdef JSON_DLL_BUILD
 
 #if !defined(JSON_API)
-#define JSON_API
+#define JSON_API 
 #endif
 
 #if defined(_MSC_VER) && _MSC_VER < 1800

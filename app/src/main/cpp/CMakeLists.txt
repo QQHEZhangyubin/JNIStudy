@@ -14,7 +14,13 @@ project("jnistudy")
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
-
+message("saaaasss")
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/ad.cmake)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/hj.cmake)
+find_package(Stb REQUIRED)
+message("${Stb_INCLUDE_DIRS}")
+message("${CMAKE_CURRENT_BINARY_DIR}")
 file(GLOB native_srcs "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/*.cpp")
 add_library( # Sets the name of the library.
         jnistudy
@@ -35,7 +41,10 @@ add_library( # Sets the name of the library.
         "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/jsoncpp/json_reader.cpp"
         "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/jsoncpp/json_value.cpp"
         "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/jsoncpp/json_writer.cpp"
+        "/Users/anker/AndroidStudioProjects/JNIStudy/app/src/main/cpp/20230522/Group.cpp"
         )
+
+
 
 
 

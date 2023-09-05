@@ -6,6 +6,7 @@
 #define JNISTUDY_UTILS_H
 
 #include "Rectangle.h"
+#include "Student.h"
 
 class Utils {
 protected:
@@ -15,6 +16,10 @@ public:
     static std::unordered_map<std::string, int> getHashMap();
     static void calculate_crea();
     static void calculate_perimeter();
+
+    static Student getStudent();
+
+    static Student *getStudent2();
 };
 
 
